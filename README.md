@@ -14,12 +14,13 @@
   <br/>
 
   <!-- 3. SYSTEM LOG TYPING -->
-  <img
+
+<img
     src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&pause=1200&color=1DE9B6&center=true&vCenter=true&width=760&height=36&lines=Requirements+engine+loaded+%E2%80%94+ACTIVE;Stakeholder+channel+open+%E2%80%94+listening;Process+model+compiled+%E2%80%94+as-is+%2F+to-be;%5BERROR%5D+Ambiguous+requirement+rejected;Acceptance+criteria+attached+%E2%80%94+0+orphans"
     alt="System log"
   />
 
-  <br/><br/>
+<br/><br/>
 
   <!-- 4. STATUS BADGES -->
   <img src="https://img.shields.io/badge/ROLE-IT_BUSINESS_ANALYST-0a1017?style=for-the-badge&labelColor=05080c&color=1de9b6" alt="Role: IT Business Analyst" />
@@ -28,11 +29,11 @@
   &nbsp;
   <img src="https://img.shields.io/badge/METHOD-AGILE_%2F_SCRUM-0a1017?style=for-the-badge&labelColor=05080c&color=3fb950" alt="Method: Agile and Scrum" />
 
-  <br/><br/>
+<br/><br/>
 
-  <a href="https://linkedin.com/in/bgq1011"><img src="https://img.shields.io/badge/LINKEDIN-bgq1011-0a1017?style=for-the-badge&logo=linkedin&logoColor=1de9b6&labelColor=05080c" alt="LinkedIn: bgq1011" /></a>
-  &nbsp;
-  <img src="https://komarev.com/ghpvc/?username=bgq1011&style=for-the-badge&color=1de9b6&labelColor=05080c&label=TELEMETRY+READS" alt="Profile views" />
+<a href="https://linkedin.com/in/bgq1011"><img src="https://img.shields.io/badge/LINKEDIN-bgq1011-0a1017?style=for-the-badge&logo=linkedin&logoColor=1de9b6&labelColor=05080c" alt="LinkedIn: bgq1011" /></a>
+&nbsp;
+<img src="https://komarev.com/ghpvc/?username=bgq1011&style=for-the-badge&color=1de9b6&labelColor=05080c&label=TELEMETRY+READS" alt="Profile views" />
 
 </div>
 
@@ -40,7 +41,7 @@
 
 ## WHO AM I ?
 
-> *"A requirement that cannot be verified is not a requirement — it is a wish."*
+> _"A requirement that cannot be verified is not a requirement — it is a wish."_
 
 Hey, I'm **Gia Quyen** — a Business Analyst working toward **IT Business Analyst**, based in Vietnam.
 
@@ -50,13 +51,14 @@ stakeholder needs into specifications a team can actually build against.
 My working model is simple — **ask until it is unambiguous, model until it is obvious,
 specify until it is testable.**
 
-* **Elicit** the real need, not the stated request — root cause over symptom.
-* **Model** processes and behaviour visually before a single line of code is written.
-* **Specify** with acceptance criteria so "done" is never a matter of opinion.
-* **Validate** continuously — the feedback loop is part of the design, not an afterthought.
+- **Elicit** the real need, not the stated request — root cause over symptom.
+- **Model** processes and behaviour visually before a single line of code is written.
+- **Specify** with acceptance criteria so "done" is never a matter of opinion.
+- **Validate** continuously — the feedback loop is part of the design, not an afterthought.
 
 <!-- PLACEHOLDER: replace the line below with your own one-sentence positioning statement. -->
-> `// TODO:` *Add your own one-sentence positioning statement here.*
+
+> `// TODO:` _Add your own one-sentence positioning statement here._
 
 <img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
@@ -145,18 +147,18 @@ specify until it is testable.**
 $ systemctl status ba-core.service --all
 ```
 
-| MODULE | CAPABILITY | STATE |
-|:---|:---|:---|
-| `requirement.elicitation` | Interviews, workshops, questionnaires, document analysis, observation | 🟢 `ONLINE` |
-| `requirement.analysis` | Prioritisation (MoSCoW), traceability, conflict + gap resolution | 🟢 `ONLINE` |
-| `stakeholder.management` | Mapping, RACI, expectation alignment, structured communication | 🟢 `ONLINE` |
-| `process.analysis` | As-is / to-be modelling, bottleneck detection, process optimisation | 🟢 `ONLINE` |
-| `process.modeling.bpmn` | BPMN 2.0 process diagrams, swimlanes, event flows | 🟢 `ONLINE` |
-| `system.modeling.uml` | Use case, activity, sequence, class and state diagrams | 🟢 `ONLINE` |
-| `spec.authoring` | BRD, SRS, FRD, user stories, use cases, acceptance criteria | 🟢 `ONLINE` |
-| `agile.delivery` | Backlog refinement, sprint ceremonies, story slicing, definition of done | 🟢 `ONLINE` |
-| `data.analysis.sql` | Querying, joins, aggregation, data validation and reconciliation | 🟡 `TRAINING` |
-| `api.analysis` | Endpoint contracts, request/response validation, integration mapping | 🟡 `TRAINING` |
+| MODULE                    | CAPABILITY                                                               | STATE         |
+| :------------------------ | :----------------------------------------------------------------------- | :------------ |
+| `requirement.elicitation` | Interviews, workshops, questionnaires, document analysis, observation    | 🟢 `ONLINE`   |
+| `requirement.analysis`    | Prioritisation (MoSCoW), traceability, conflict + gap resolution         | 🟢 `ONLINE`   |
+| `stakeholder.management`  | Mapping, RACI, expectation alignment, structured communication           | 🟢 `ONLINE`   |
+| `process.analysis`        | As-is / to-be modelling, bottleneck detection, process optimisation      | 🟢 `ONLINE`   |
+| `process.modeling.bpmn`   | BPMN 2.0 process diagrams, swimlanes, event flows                        | 🟢 `ONLINE`   |
+| `system.modeling.uml`     | Use case, activity, sequence, class and state diagrams                   | 🟢 `ONLINE`   |
+| `spec.authoring`          | BRD, SRS, FRD, user stories, use cases, acceptance criteria              | 🟢 `ONLINE`   |
+| `agile.delivery`          | Backlog refinement, sprint ceremonies, story slicing, definition of done | 🟢 `ONLINE`   |
+| `data.analysis.sql`       | Querying, joins, aggregation, data validation and reconciliation         | 🟡 `TRAINING` |
+| `api.analysis`            | Endpoint contracts, request/response validation, integration mapping     | 🟡 `TRAINING` |
 
 <img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
@@ -194,11 +196,11 @@ $ ps aux | grep project
   └──────────────────────────────────────────────────────────────────────┘
 -->
 
-| PID | PROJECT | SCOPE | ARTEFACTS | STATE |
-|:---|:---|:---|:---|:---|
-| `0001` | *`<project-name>`* | *`<what business problem it solves>`* | *`<BRD / BPMN / user stories>`* | 🟢 `RUNNING` |
-| `0002` | *`<project-name>`* | *`<scope in one line>`* | *`<artefacts produced>`* | 🟡 `ANALYSIS` |
-| `0003` | *`<project-name>`* | *`<scope in one line>`* | *`<artefacts produced>`* | ⚪ `QUEUED` |
+| PID    | PROJECT            | SCOPE                                 | ARTEFACTS                       | STATE         |
+| :----- | :----------------- | :------------------------------------ | :------------------------------ | :------------ |
+| `0001` | _`<project-name>`_ | _`<what business problem it solves>`_ | _`<BRD / BPMN / user stories>`_ | 🟢 `RUNNING`  |
+| `0002` | _`<project-name>`_ | _`<scope in one line>`_               | _`<artefacts produced>`_        | 🟡 `ANALYSIS` |
+| `0003` | _`<project-name>`_ | _`<scope in one line>`_               | _`<artefacts produced>`_        | ⚪ `QUEUED`   |
 
 > `// PLACEHOLDER:` **Replace the three rows above with real projects, case
 > studies, or BA practice repositories.** Delete any row you do not need.
@@ -240,8 +242,8 @@ vietnamese              = <level>
 english                 = <level>
 ```
 
-> `// PLACEHOLDER:` *Fill in the `[languages]` block, and add certifications
-> only once you actually hold them (e.g. IIBA ECBA/CCBA, PSPO, PSM).*
+> `// PLACEHOLDER:` _Fill in the `[languages]` block, and add certifications
+> only once you actually hold them (e.g. IIBA ECBA/CCBA, PSPO, PSM)._
 
 <img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
