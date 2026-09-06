@@ -1,46 +1,145 @@
 <div align="center">
-  <img src="./assets/header.svg" alt="BUSINESS ANALYSIS SYSTEM ONLINE — GIA QUYEN — IT BUSINESS ANALYST" width="100%" />
+
+  <!-- 1. HERO — MATRIX RAIN & IDENTITY -->
+  <img src="./assets/matrix-banner.svg" width="100%" alt="GIA QUYEN — IT Business Analyst" />
+
+  <br/>
+
+  <!-- 2. POSITIONING -->
+  <p align="center">
+    <strong>IT Business Analyst</strong> &bull; Requirements Engineering &amp; Business Process Analysis<br/>
+    <sub>Translating ambiguous business intent into precise, testable, buildable specifications.</sub>
+  </p>
+
+  <br/>
+
+  <!-- 3. SYSTEM LOG TYPING -->
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&pause=1200&color=1DE9B6&center=true&vCenter=true&width=760&height=36&lines=Requirements+engine+loaded+%E2%80%94+ACTIVE;Stakeholder+channel+open+%E2%80%94+listening;Process+model+compiled+%E2%80%94+as-is+%2F+to-be;%5BERROR%5D+Ambiguous+requirement+rejected;Acceptance+criteria+attached+%E2%80%94+0+orphans"
+    alt="System log"
+  />
+
+  <br/><br/>
+
+  <!-- 4. STATUS BADGES -->
+  <img src="https://img.shields.io/badge/ROLE-IT_BUSINESS_ANALYST-0a1017?style=for-the-badge&labelColor=05080c&color=1de9b6" alt="Role: IT Business Analyst" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/FOCUS-REQUIREMENTS_%2F_PROCESS-0a1017?style=for-the-badge&labelColor=05080c&color=58a6ff" alt="Focus: Requirements and Process" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/METHOD-AGILE_%2F_SCRUM-0a1017?style=for-the-badge&labelColor=05080c&color=3fb950" alt="Method: Agile and Scrum" />
+
+  <br/><br/>
+
+  <a href="https://linkedin.com/in/bgq1011"><img src="https://img.shields.io/badge/LINKEDIN-bgq1011-0a1017?style=for-the-badge&logo=linkedin&logoColor=1de9b6&labelColor=05080c" alt="LinkedIn: bgq1011" /></a>
+  &nbsp;
+  <img src="https://komarev.com/ghpvc/?username=bgq1011&style=for-the-badge&color=1de9b6&labelColor=05080c&label=TELEMETRY+READS" alt="Profile views" />
+
 </div>
+
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
+
+## WHO AM I ?
+
+> *"A requirement that cannot be verified is not a requirement — it is a wish."*
+
+Hey, I'm **Gia Quyen** — a Business Analyst working toward **IT Business Analyst**, based in Vietnam.
+
+I work at the seam where **business problems meet technical solutions**: turning vague
+stakeholder needs into specifications a team can actually build against.
+
+My working model is simple — **ask until it is unambiguous, model until it is obvious,
+specify until it is testable.**
+
+* **Elicit** the real need, not the stated request — root cause over symptom.
+* **Model** processes and behaviour visually before a single line of code is written.
+* **Specify** with acceptance criteria so "done" is never a matter of opinion.
+* **Validate** continuously — the feedback loop is part of the design, not an afterthought.
+
+<!-- PLACEHOLDER: replace the line below with your own one-sentence positioning statement. -->
+> `// TODO:` *Add your own one-sentence positioning statement here.*
+
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
+
+## ANALYSIS CONSOLE
 
 <div align="center">
-  <a href="https://linkedin.com/in/bgq1011"><img src="https://img.shields.io/badge/LINKEDIN-0a1017?style=flat-square&logo=linkedin&logoColor=1de9b6&labelColor=0a1017" alt="LinkedIn" /></a>
-  <img src="https://img.shields.io/badge/ROLE-IT_BUSINESS_ANALYST-0a1017?style=flat-square&labelColor=0a1017&color=1de9b6" alt="Role: IT Business Analyst" />
-  <img src="https://img.shields.io/badge/FOCUS-REQUIREMENTS_%2F_PROCESS-0a1017?style=flat-square&labelColor=0a1017&color=58a6ff" alt="Focus: Requirements and Process" />
-  <img src="https://img.shields.io/badge/STATUS-BUILDING_BETTER_SYSTEMS-0a1017?style=flat-square&labelColor=0a1017&color=3fb950" alt="Status: Building better systems" />
+  <img src="./assets/terminal-slides.svg" width="740" alt="Analysis pipeline console: elicit, model, specify" />
 </div>
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-## `01` WHO AM I
+## LOADED MODULES
 
-```console
-$ whoami --verbose
+<table width="100%">
+  <tr>
+    <td width="18%" valign="middle"><strong>ELICITATION</strong></td>
+    <td width="82%" valign="middle">
+      <img src="https://img.shields.io/badge/Interviews-050505?style=flat-square&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Workshops-050505?style=flat-square&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Document_Analysis-050505?style=flat-square&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Observation-050505?style=flat-square&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Questionnaires-050505?style=flat-square&labelColor=05080c&color=1de9b6" />
+    </td>
+  </tr>
+  <tr>
+    <td width="18%" valign="middle"><strong>ANALYSIS</strong></td>
+    <td width="82%" valign="middle">
+      <img src="https://img.shields.io/badge/MoSCoW-050505?style=flat-square&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/Traceability-050505?style=flat-square&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/Gap_Analysis-050505?style=flat-square&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/Root_Cause-050505?style=flat-square&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/RACI-050505?style=flat-square&labelColor=05080c&color=58a6ff" />
+    </td>
+  </tr>
+  <tr>
+    <td width="18%" valign="middle"><strong>MODELING</strong></td>
+    <td width="82%" valign="middle">
+      <img src="https://img.shields.io/badge/BPMN_2.0-050505?style=flat-square&labelColor=05080c&color=3fb950" />
+      <img src="https://img.shields.io/badge/UML-050505?style=flat-square&labelColor=05080c&color=3fb950" />
+      <img src="https://img.shields.io/badge/Use_Case-050505?style=flat-square&labelColor=05080c&color=3fb950" />
+      <img src="https://img.shields.io/badge/Activity_Diagram-050505?style=flat-square&labelColor=05080c&color=3fb950" />
+      <img src="https://img.shields.io/badge/Sequence_Diagram-050505?style=flat-square&labelColor=05080c&color=3fb950" />
+      <img src="https://img.shields.io/badge/Wireframing-050505?style=flat-square&labelColor=05080c&color=3fb950" />
+    </td>
+  </tr>
+  <tr>
+    <td width="18%" valign="middle"><strong>SPECIFICATION</strong></td>
+    <td width="82%" valign="middle">
+      <img src="https://img.shields.io/badge/BRD-050505?style=flat-square&labelColor=05080c&color=d29922" />
+      <img src="https://img.shields.io/badge/SRS-050505?style=flat-square&labelColor=05080c&color=d29922" />
+      <img src="https://img.shields.io/badge/FRD-050505?style=flat-square&labelColor=05080c&color=d29922" />
+      <img src="https://img.shields.io/badge/User_Stories-050505?style=flat-square&labelColor=05080c&color=d29922" />
+      <img src="https://img.shields.io/badge/Acceptance_Criteria-050505?style=flat-square&labelColor=05080c&color=d29922" />
+    </td>
+  </tr>
+  <tr>
+    <td width="18%" valign="middle"><strong>DELIVERY</strong></td>
+    <td width="82%" valign="middle">
+      <img src="https://img.shields.io/badge/Jira-050505?style=flat-square&logo=jira&logoColor=58a6ff&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/Confluence-050505?style=flat-square&logo=confluence&logoColor=58a6ff&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/Agile_%2F_Scrum-050505?style=flat-square&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/Backlog_Refinement-050505?style=flat-square&labelColor=05080c&color=58a6ff" />
+      <img src="https://img.shields.io/badge/Git-050505?style=flat-square&logo=git&logoColor=f85149&labelColor=05080c&color=f85149" />
+    </td>
+  </tr>
+  <tr>
+    <td width="18%" valign="middle"><strong>DATA</strong></td>
+    <td width="82%" valign="middle">
+      <img src="https://img.shields.io/badge/SQL-050505?style=flat-square&logo=postgresql&logoColor=1de9b6&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Postman-050505?style=flat-square&logo=postman&logoColor=1de9b6&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Excel-050505?style=flat-square&logo=microsoftexcel&logoColor=1de9b6&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Power_BI-050505?style=flat-square&logo=powerbi&logoColor=1de9b6&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Figma-050505?style=flat-square&logo=figma&logoColor=1de9b6&labelColor=05080c&color=1de9b6" />
+      <img src="https://img.shields.io/badge/Draw.io-050505?style=flat-square&logo=diagramsdotnet&logoColor=1de9b6&labelColor=05080c&color=1de9b6" />
+      <br/>
+      <img src="./assets/spacer.svg" width="950" height="1" alt="" />
+    </td>
+  </tr>
+</table>
 
-USER ............. GIA QUYEN
-ROLE ............. Business Analyst
-DIRECTION ........ IT Business Analyst
-DOMAIN ........... requirements engineering · business process analysis
-METHOD ........... Agile / Scrum · structured analysis · continuous validation
-MISSION .......... translate business intent into systems that actually ship
-```
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-I work at the seam between **business problems** and **technical solutions** — turning
-ambiguous stakeholder needs into precise, testable, buildable specifications.
-
-My working model is simple: **ask until it is unambiguous, model until it is
-obvious, specify until it is testable.** A requirement that cannot be verified is
-not a requirement — it is a wish.
-
-- **Elicit** the real need, not the stated request — root cause over symptom
-- **Model** processes and behaviour visually before a single line is written
-- **Specify** with acceptance criteria so "done" is never a matter of opinion
-- **Validate** continuously — the feedback loop is part of the design, not an afterthought
-
-> `// TODO:` *Replace this line with your own one-sentence positioning statement.*
-
-<img src="./assets/system-divider.svg" alt="" width="100%" />
-
-## `02` BA SYSTEM / CORE CAPABILITIES
+## CORE CAPABILITIES
 
 ```console
 $ systemctl status ba-core.service --all
@@ -59,56 +158,9 @@ $ systemctl status ba-core.service --all
 | `data.analysis.sql` | Querying, joins, aggregation, data validation and reconciliation | 🟡 `TRAINING` |
 | `api.analysis` | Endpoint contracts, request/response validation, integration mapping | 🟡 `TRAINING` |
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-## `03` BA TOOLKIT
-
-```console
-$ ls -la ~/toolkit/
-```
-
-```text
-├── ANALYSIS & MODELING
-│   ├── BPMN 2.0 ................ business process modelling notation
-│   ├── UML ..................... use case · activity · sequence · class
-│   ├── Draw.io ................. diagramming and process maps
-│   └── Figma ................... wireframes · UI flow · prototype review
-│
-├── DOCUMENTATION & SPECIFICATION
-│   ├── BRD / SRS / FRD ......... formal requirement documentation
-│   ├── User Stories + AC ....... Given / When / Then criteria
-│   ├── Use Cases ............... actor · precondition · main + alt flows
-│   └── Confluence .............. knowledge base and living specs
-│
-├── DELIVERY & TRACKING
-│   ├── Jira .................... backlog · sprint · issue traceability
-│   ├── Agile / Scrum ........... iterative delivery framework
-│   └── Git / GitHub ............ version control and collaboration
-│
-└── DATA & VALIDATION
-    ├── SQL ..................... data querying and verification
-    ├── Postman ................. API request testing and contract checks
-    ├── Excel ................... analysis · matrices · pivot reporting
-    └── Power BI ................ dashboards and data storytelling
-```
-
-<div align="center">
-  <img src="https://img.shields.io/badge/BPMN-0a1017?style=flat-square&labelColor=0a1017&color=1de9b6" alt="BPMN" />
-  <img src="https://img.shields.io/badge/UML-0a1017?style=flat-square&labelColor=0a1017&color=1de9b6" alt="UML" />
-  <img src="https://img.shields.io/badge/SQL-0a1017?style=flat-square&logo=postgresql&logoColor=58a6ff&labelColor=0a1017&color=58a6ff" alt="SQL" />
-  <img src="https://img.shields.io/badge/Jira-0a1017?style=flat-square&logo=jira&logoColor=58a6ff&labelColor=0a1017&color=58a6ff" alt="Jira" />
-  <img src="https://img.shields.io/badge/Confluence-0a1017?style=flat-square&logo=confluence&logoColor=58a6ff&labelColor=0a1017&color=58a6ff" alt="Confluence" />
-  <img src="https://img.shields.io/badge/Postman-0a1017?style=flat-square&logo=postman&logoColor=d29922&labelColor=0a1017&color=d29922" alt="Postman" />
-  <img src="https://img.shields.io/badge/Figma-0a1017?style=flat-square&logo=figma&logoColor=1de9b6&labelColor=0a1017&color=1de9b6" alt="Figma" />
-  <img src="https://img.shields.io/badge/Draw.io-0a1017?style=flat-square&logo=diagramsdotnet&logoColor=d29922&labelColor=0a1017&color=d29922" alt="Draw.io" />
-  <img src="https://img.shields.io/badge/Power_BI-0a1017?style=flat-square&logo=powerbi&logoColor=d29922&labelColor=0a1017&color=d29922" alt="Power BI" />
-  <img src="https://img.shields.io/badge/Excel-0a1017?style=flat-square&logo=microsoftexcel&logoColor=3fb950&labelColor=0a1017&color=3fb950" alt="Excel" />
-  <img src="https://img.shields.io/badge/Git-0a1017?style=flat-square&logo=git&logoColor=f85149&labelColor=0a1017&color=f85149" alt="Git" />
-</div>
-
-<img src="./assets/system-divider.svg" alt="" width="100%" />
-
-## `04` ANALYSIS PIPELINE
+## ANALYSIS PIPELINE
 
 <div align="center">
   <img src="./assets/ba-pipeline.svg" alt="Analysis pipeline: elicit, analyze, model, specify, validate, support" width="100%" />
@@ -127,9 +179,9 @@ $ trace requirement --id REQ-001 --follow
 TRACE COMPLETE — 0 orphaned requirements
 ```
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-## `05` ACTIVE PROJECTS
+## ACTIVE PROCESSES
 
 ```console
 $ ps aux | grep project
@@ -152,13 +204,9 @@ $ ps aux | grep project
 > studies, or BA practice repositories.** Delete any row you do not need.
 > Nothing above describes real experience — it is scaffolding for you to fill in.
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-## `06` TECHNICAL SKILLS
-
-```console
-$ cat ~/.config/skills.conf
-```
+## SKILL CONFIG
 
 ```ini
 [analysis]
@@ -192,22 +240,22 @@ vietnamese              = <level>
 english                 = <level>
 ```
 
-> `// PLACEHOLDER:` *Fill in the `[languages]` block and add certifications
-> below only once you actually hold them (e.g. IIBA ECBA/CCBA, PSPO, PSM).*
+> `// PLACEHOLDER:` *Fill in the `[languages]` block, and add certifications
+> only once you actually hold them (e.g. IIBA ECBA/CCBA, PSPO, PSM).*
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-## `07` GITHUB TELEMETRY
+## GITHUB TELEMETRY
 
 <div align="center">
   <img src="./dist/metrics.svg" alt="GitHub telemetry dashboard — repositories, stars, followers, languages, recent activity" width="100%" />
 </div>
 
-<sub>`AUTO-GENERATED` — rebuilt daily by [`update-profile.yml`](.github/workflows/update-profile.yml) via [`scripts/generate-metrics.js`](scripts/generate-metrics.js). Do not edit `dist/metrics.svg` by hand.</sub>
+<sub>`AUTO-GENERATED` — rebuilt daily by <a href="/.github/workflows/update-profile.yml"><code>update-profile.yml</code></a> via <a href="/scripts/generate-metrics.js"><code>generate-metrics.js</code></a>. Do not edit <code>dist/metrics.svg</code> by hand.</sub>
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-## `08` CONTRIBUTION ACTIVITY
+## CONTRIBUTION ACTIVITY
 
 <div align="center">
   <img src="./dist/github-contribution-grid-snake-dark.svg" alt="Contribution graph snake animation" width="100%" />
@@ -222,9 +270,9 @@ english                 = <level>
 <sub>Generated by <a href="/.github/workflows/profile-3d.yml"><code>profile-3d.yml</code></a>. Renders after the workflow's first successful run.</sub>
 </details>
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
-## `09` CONNECT
+## CONNECT
 
 ```console
 $ ./open_channel --secure
@@ -236,22 +284,22 @@ BEST TOPIC ...... requirements, process modelling, spec writing
 ```
 
 <div align="center">
-  <a href="https://linkedin.com/in/bgq1011"><img src="https://img.shields.io/badge/LINKEDIN-bgq1011-0a1017?style=for-the-badge&logo=linkedin&logoColor=1de9b6&labelColor=0a1017" alt="LinkedIn: bgq1011" /></a>
-  <a href="https://twitter.com/bbuigiaquyen"><img src="https://img.shields.io/badge/X_%2F_TWITTER-bbuigiaquyen-0a1017?style=for-the-badge&logo=x&logoColor=58a6ff&labelColor=0a1017" alt="X / Twitter: bbuigiaquyen" /></a>
-  <a href="https://facebook.com/bbuigiaquyen"><img src="https://img.shields.io/badge/FACEBOOK-bbuigiaquyen-0a1017?style=for-the-badge&logo=facebook&logoColor=58a6ff&labelColor=0a1017" alt="Facebook: bbuigiaquyen" /></a>
-  <a href="https://instagram.com/bbuigiaquyen"><img src="https://img.shields.io/badge/INSTAGRAM-bbuigiaquyen-0a1017?style=for-the-badge&logo=instagram&logoColor=f778ba&labelColor=0a1017" alt="Instagram: bbuigiaquyen" /></a>
-</div>
-
-<div align="center">
-  <br />
+  <a href="https://linkedin.com/in/bgq1011"><img src="https://img.shields.io/badge/LINKEDIN-bgq1011-0a1017?style=for-the-badge&logo=linkedin&logoColor=1de9b6&labelColor=05080c" alt="LinkedIn: bgq1011" /></a>
+  <a href="https://twitter.com/bbuigiaquyen"><img src="https://img.shields.io/badge/X_%2F_TWITTER-bbuigiaquyen-0a1017?style=for-the-badge&logo=x&logoColor=58a6ff&labelColor=05080c" alt="X / Twitter: bbuigiaquyen" /></a>
+  <a href="https://facebook.com/bbuigiaquyen"><img src="https://img.shields.io/badge/FACEBOOK-bbuigiaquyen-0a1017?style=for-the-badge&logo=facebook&logoColor=58a6ff&labelColor=05080c" alt="Facebook: bbuigiaquyen" /></a>
+  <a href="https://instagram.com/bbuigiaquyen"><img src="https://img.shields.io/badge/INSTAGRAM-bbuigiaquyen-0a1017?style=for-the-badge&logo=instagram&logoColor=f778ba&labelColor=05080c" alt="Instagram: bbuigiaquyen" /></a>
+  <br /><br />
   <sub><code>// PLACEHOLDER — add a contact email or portfolio link here if you want one public.</code></sub>
 </div>
 
-<img src="./assets/system-divider.svg" alt="" width="100%" />
+<img src="./assets/matrix-divider.svg" width="100%" alt="" />
 
 <div align="center">
   <br />
+  <img src="./assets/name-scramble.svg" width="700" alt="GIA QUYEN — IT Business Analyst" />
+  <br /><br />
   <code>SESSION ACTIVE</code> · <code>REQUIREMENTS ENGINE RUNNING</code> · <code>AWAITING NEXT PROBLEM</code>
   <br /><br />
-  <sub>Built as a system, not a résumé. Assets in <a href="/assets/"><code>assets/</code></a> are original SVG — no external image services.</sub>
+  <sub>Built as a system, not a résumé. Every SVG in <a href="/assets/"><code>assets/</code></a> is original,
+  generated by <a href="/scripts/generate-assets.js"><code>generate-assets.js</code></a> — no external image services.</sub>
 </div>

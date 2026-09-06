@@ -17,5 +17,10 @@ pnpm-debug.log*
 Thumbs.db
 desktop.ini
 
+# reference material — a copy of someone else's profile, kept locally for
+# design reference only. Never commit it: the SVGs carry their author's name
+# and branding baked in.
+example/
+
 # NOTE: dist/ and profile-3d-contrib/ are intentionally NOT ignored.
 # GitHub Actions commits the generated SVGs there so the README can render them.

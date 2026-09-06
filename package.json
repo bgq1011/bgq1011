@@ -9,6 +9,7 @@
   },
   "scripts": {
     "metrics": "node scripts/generate-metrics.js",
-    "check": "node --check scripts/generate-metrics.js"
+    "assets": "node scripts/generate-assets.js",
+    "check": "node --check scripts/generate-metrics.js && node --check scripts/generate-assets.js"
   }
 }
