@@ -37,7 +37,7 @@
 
 </div>
 
-<img src="./assets/matrix-divider11.svg" width="100%" alt="" />
+<img src="./assets/matrix-divider1.svg" width="100%" alt="" />
 
 ## WHO AM I ?
 
