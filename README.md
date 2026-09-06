@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="./assets/matrix-divider1.svg" width="100%" alt="" />
 
   <!-- 1. HERO — MATRIX RAIN & IDENTITY -->
   <img src="./assets/matrix-banner.svg" width="100%" alt="GIA QUYEN — IT Business Analyst" />
