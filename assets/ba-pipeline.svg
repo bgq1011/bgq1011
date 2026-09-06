@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" role="img" aria-label="Business analysis pipeline: Elicit, Analyze, Model, Specify, Validate, Support.">
+  <title>ANALYSIS PIPELINE — elicit, analyze, model, specify, validate, support</title>
+
+  <defs>
+    <linearGradient id="pBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070a0f"/>
+      <stop offset="1" stop-color="#0a1017"/>
+    </linearGradient>
+    <linearGradient id="pEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1de9b6" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#58a6ff" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1de9b6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#58a6ff" stop-opacity="0.35"/>
+    </linearGradient>
+    <pattern id="pGrid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0V25" fill="none" stroke="#1de9b6" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <clipPath id="pFrame">
+      <rect x="1" y="1" width="998" height="298" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+    .lbl  { fill: #e6edf3; font-size: 12.5px; font-weight: bold; letter-spacing: 0.8px; }
+    .sub  { fill: #7d92a3; font-size: 10px; }
+    .idx  { fill: #1de9b6; font-size: 10px; letter-spacing: 1px; }
+    .cap  { fill: #4a5a68; font-size: 10.5px; letter-spacing: 1.6px; }
+    .out  { fill: #58a6ff; font-size: 10px; }
+
+    .node { animation: rise 0.5s ease-out backwards; }
+    .n1 { animation-delay: 0.05s; } .n2 { animation-delay: 0.20s; }
+    .n3 { animation-delay: 0.35s; } .n4 { animation-delay: 0.50s; }
+    .n5 { animation-delay: 0.65s; } .n6 { animation-delay: 0.80s; }
+
+    .packet { animation: flow 7s linear infinite; }
+    .halo   { animation: halo 3s ease-in-out infinite; }
+    .halo-b { animation: halo 3s ease-in-out 1.5s infinite; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes flow { 0% { transform: translateX(0); opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } 100% { transform: translateX(848px); opacity: 0; } }
+    @keyframes halo { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.75; } }
+  </style>
+
+  <g clip-path="url(#pFrame)">
+    <rect width="1000" height="300" fill="url(#pBg)"/>
+    <rect width="1000" height="300" fill="url(#pGrid)"/>
+
+    <text class="mono cap" x="28" y="34">ANALYSIS PIPELINE // REQUIREMENT LIFECYCLE</text>
+    <text class="mono cap" x="972" y="34" text-anchor="end">STATE: RUNNING</text>
+    <line x1="28" y1="48" x2="972" y2="48" stroke="#1de9b6" stroke-opacity="0.12"/>
+
+    <!-- rail -->
+    <line x1="76" y1="150" x2="924" y2="150" stroke="url(#rail)" stroke-width="2" stroke-dasharray="6 5"/>
+    <circle class="packet" cx="76" cy="150" r="4" fill="#1de9b6"/>
+
+    <!-- stage 1 -->
+    <g class="node n1">
+      <circle class="halo" cx="76" cy="150" r="17" fill="none" stroke="#1de9b6" stroke-opacity="0.5"/>
+      <circle cx="76" cy="150" r="11" fill="#0d141c" stroke="#1de9b6" stroke-width="1.5"/>
+      <circle cx="76" cy="150" r="3.5" fill="#1de9b6"/>
+      <text class="mono idx" x="76" y="196" text-anchor="middle">01</text>
+      <text class="mono lbl" x="76" y="214" text-anchor="middle">ELICIT</text>
+      <text class="mono sub" x="76" y="230" text-anchor="middle">interviews</text>
+      <text class="mono sub" x="76" y="243" text-anchor="middle">workshops</text>
+      <text class="mono out" x="76" y="262" text-anchor="middle">raw needs</text>
+    </g>
+
+    <!-- stage 2 -->
+    <g class="node n2">
+      <circle class="halo-b" cx="245" cy="150" r="17" fill="none" stroke="#58a6ff" stroke-opacity="0.5"/>
+      <circle cx="245" cy="150" r="11" fill="#0d141c" stroke="#58a6ff" stroke-width="1.5"/>
+      <circle cx="245" cy="150" r="3.5" fill="#58a6ff"/>
+      <text class="mono idx" x="245" y="196" text-anchor="middle">02</text>
+      <text class="mono lbl" x="245" y="214" text-anchor="middle">ANALYZE</text>
+      <text class="mono sub" x="245" y="230" text-anchor="middle">as-is / to-be</text>
+      <text class="mono sub" x="245" y="243" text-anchor="middle">gap + root cause</text>
+      <text class="mono out" x="245" y="262" text-anchor="middle">problem map</text>
+    </g>
+
+    <!-- stage 3 -->
+    <g class="node n3">
+      <circle class="halo" cx="414" cy="150" r="17" fill="none" stroke="#1de9b6" stroke-opacity="0.5"/>
+      <circle cx="414" cy="150" r="11" fill="#0d141c" stroke="#1de9b6" stroke-width="1.5"/>
+      <circle cx="414" cy="150" r="3.5" fill="#1de9b6"/>
+      <text class="mono idx" x="414" y="196" text-anchor="middle">03</text>
+      <text class="mono lbl" x="414" y="214" text-anchor="middle">MODEL</text>
+      <text class="mono sub" x="414" y="230" text-anchor="middle">BPMN / UML</text>
+      <text class="mono sub" x="414" y="243" text-anchor="middle">wireframes</text>
+      <text class="mono out" x="414" y="262" text-anchor="middle">diagrams</text>
+    </g>
+
+    <!-- stage 4 -->
+    <g class="node n4">
+      <circle class="halo-b" cx="586" cy="150" r="17" fill="none" stroke="#58a6ff" stroke-opacity="0.5"/>
+      <circle cx="586" cy="150" r="11" fill="#0d141c" stroke="#58a6ff" stroke-width="1.5"/>
+      <circle cx="586" cy="150" r="3.5" fill="#58a6ff"/>
+      <text class="mono idx" x="586" y="196" text-anchor="middle">04</text>
+      <text class="mono lbl" x="586" y="214" text-anchor="middle">SPECIFY</text>
+      <text class="mono sub" x="586" y="230" text-anchor="middle">BRD / SRS</text>
+      <text class="mono sub" x="586" y="243" text-anchor="middle">user stories + AC</text>
+      <text class="mono out" x="586" y="262" text-anchor="middle">specifications</text>
+    </g>
+
+    <!-- stage 5 -->
+    <g class="node n5">
+      <circle class="halo" cx="755" cy="150" r="17" fill="none" stroke="#1de9b6" stroke-opacity="0.5"/>
+      <circle cx="755" cy="150" r="11" fill="#0d141c" stroke="#1de9b6" stroke-width="1.5"/>
+      <circle cx="755" cy="150" r="3.5" fill="#1de9b6"/>
+      <text class="mono idx" x="755" y="196" text-anchor="middle">05</text>
+      <text class="mono lbl" x="755" y="214" text-anchor="middle">VALIDATE</text>
+      <text class="mono sub" x="755" y="230" text-anchor="middle">UAT support</text>
+      <text class="mono sub" x="755" y="243" text-anchor="middle">API checks</text>
+      <text class="mono out" x="755" y="262" text-anchor="middle">sign-off</text>
+    </g>
+
+    <!-- stage 6 -->
+    <g class="node n6">
+      <circle class="halo-b" cx="924" cy="150" r="17" fill="none" stroke="#3fb950" stroke-opacity="0.5"/>
+      <circle cx="924" cy="150" r="11" fill="#0d141c" stroke="#3fb950" stroke-width="1.5"/>
+      <circle cx="924" cy="150" r="3.5" fill="#3fb950"/>
+      <text class="mono idx" x="924" y="196" text-anchor="middle">06</text>
+      <text class="mono lbl" x="924" y="214" text-anchor="middle">SUPPORT</text>
+      <text class="mono sub" x="924" y="230" text-anchor="middle">release notes</text>
+      <text class="mono sub" x="924" y="243" text-anchor="middle">feedback loop</text>
+      <text class="mono out" x="924" y="262" text-anchor="middle">iteration</text>
+    </g>
+
+    <!-- feedback arc back to stage 1 -->
+    <path d="M924 122 C 924 78, 76 78, 76 122" fill="none" stroke="#d29922" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 6"/>
+    <text class="mono" x="500" y="82" font-size="10" fill="#d29922" fill-opacity="0.75" text-anchor="middle" letter-spacing="1.4">FEEDBACK LOOP — CONTINUOUS REFINEMENT</text>
+    <path d="M76 122 l -5 -8 l 10 0 z" fill="#d29922" fill-opacity="0.55"/>
+  </g>
+
+  <rect x="1" y="1" width="998" height="298" rx="12" fill="none" stroke="url(#pEdge)" stroke-width="1.5"/>
+</svg>

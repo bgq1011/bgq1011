@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="140" viewBox="0 0 1000 140" role="img" aria-label="Contribution snake animation awaiting first generation.">
+  <title>CONTRIBUTION ACTIVITY — awaiting first generation</title>
+  <defs>
+    <linearGradient id="snBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070a0f"/>
+      <stop offset="1" stop-color="#0a1017"/>
+    </linearGradient>
+    <linearGradient id="snEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1de9b6" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#58a6ff" stop-opacity="0.2"/>
+    </linearGradient>
+    <clipPath id="snFrame"><rect x="1" y="1" width="998" height="138" rx="12"/></clipPath>
+  </defs>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+    .crawl { animation: crawl 4s ease-in-out infinite; }
+    @keyframes crawl { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(120px); } }
+  </style>
+  <g clip-path="url(#snFrame)">
+    <rect width="1000" height="140" fill="url(#snBg)"/>
+    <g fill="#1de9b6" fill-opacity="0.12">
+      <rect x="28" y="96" width="9" height="9" rx="2"/><rect x="43" y="96" width="9" height="9" rx="2"/>
+      <rect x="58" y="96" width="9" height="9" rx="2"/><rect x="73" y="96" width="9" height="9" rx="2"/>
+      <rect x="88" y="96" width="9" height="9" rx="2"/><rect x="103" y="96" width="9" height="9" rx="2"/>
+      <rect x="118" y="96" width="9" height="9" rx="2"/><rect x="133" y="96" width="9" height="9" rx="2"/>
+    </g>
+    <g class="crawl">
+      <rect x="28" y="96" width="9" height="9" rx="2" fill="#1de9b6" fill-opacity="0.9"/>
+      <rect x="43" y="96" width="9" height="9" rx="2" fill="#1de9b6" fill-opacity="0.6"/>
+      <rect x="58" y="96" width="9" height="9" rx="2" fill="#1de9b6" fill-opacity="0.3"/>
+    </g>
+    <text class="mono" x="28" y="52" font-size="14">
+      <tspan fill="#d29922">[ WAIT ]</tspan>
+      <tspan fill="#e6edf3" dx="10" font-weight="bold" letter-spacing="1.2">CONTRIBUTION SNAKE NOT YET GENERATED</tspan>
+    </text>
+    <text class="mono" x="28" y="78" font-size="12" fill="#a9c2d1">Run the “Contribution Snake” workflow to replace this placeholder.</text>
+  </g>
+  <rect x="1" y="1" width="998" height="138" rx="12" fill="none" stroke="url(#snEdge)" stroke-width="1.5"/>
+</svg>

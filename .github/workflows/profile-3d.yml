@@ -1,0 +1,45 @@
+name: 3D Contribution Graph
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 04:23 UTC daily, offset again so the three profile jobs never overlap.
+    - cron: "23 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-3d
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Generate 3D contribution graph
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Writes several SVG variants into profile-3d-contrib/.
+      - name: Generate 3D graph
+        uses: yoshi389111/github-profile-3d-contrib@0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add profile-3d-contrib
+
+          if git diff --cached --quiet; then
+            echo "No 3D graph changes — nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(profile): refresh 3D contribution graph [skip ci]"
+          git push

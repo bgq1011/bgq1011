@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment / secrets — never commit a token
+.env
+.env.*
+!.env.example
+
+# editor + OS noise
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# NOTE: dist/ and profile-3d-contrib/ are intentionally NOT ignored.
+# GitHub Actions commits the generated SVGs there so the README can render them.

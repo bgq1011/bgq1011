@@ -1,0 +1,61 @@
+name: Update Profile Metrics
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 02:17 UTC daily — off-the-hour to avoid GitHub's scheduling peaks.
+    - cron: "17 2 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-profile
+  cancel-in-progress: false
+
+jobs:
+  metrics:
+    name: Generate telemetry SVG
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # The generator has zero runtime dependencies, so a lockfile-less
+      # install is skipped entirely. This step exists only for the day a
+      # dependency is added.
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "No package-lock.json — generator has no dependencies, skipping install."
+          fi
+
+      - name: Generate metrics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+        run: node scripts/generate-metrics.js
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add dist/metrics.svg
+
+          if git diff --cached --quiet; then
+            echo "No metric changes — nothing to commit."
+            exit 0
+          fi
+
+          # [skip ci] keeps this push from re-triggering any workflow.
+          git commit -m "chore(profile): refresh telemetry dashboard [skip ci]"
+          git push

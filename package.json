@@ -1,0 +1,14 @@
+{
+  "name": "profile-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Terminal-themed GitHub profile dashboard generator for the bgq1011/bgq1011 profile repository.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "metrics": "node scripts/generate-metrics.js",
+    "check": "node --check scripts/generate-metrics.js"
+  }
+}

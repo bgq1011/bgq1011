@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="140" viewBox="0 0 1000 140" role="img" aria-label="3D contribution graph awaiting first generation.">
+  <title>3D CONTRIBUTION GRAPH — awaiting first generation</title>
+  <defs>
+    <linearGradient id="tdBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070a0f"/>
+      <stop offset="1" stop-color="#0a1017"/>
+    </linearGradient>
+    <linearGradient id="tdEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bc8cff" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#58a6ff" stop-opacity="0.2"/>
+    </linearGradient>
+    <clipPath id="tdFrame"><rect x="1" y="1" width="998" height="138" rx="12"/></clipPath>
+  </defs>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+    .fl { animation: fl 3s ease-in-out infinite; }
+    @keyframes fl { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.85; } }
+  </style>
+  <g clip-path="url(#tdFrame)">
+    <rect width="1000" height="140" fill="url(#tdBg)"/>
+    <!-- isometric placeholder blocks -->
+    <g class="fl">
+      <path d="M820 96 l26 -15 l26 15 l-26 15 z" fill="#bc8cff" fill-opacity="0.35"/>
+      <path d="M820 96 l26 15 l0 -18 l-26 -15 z" fill="#bc8cff" fill-opacity="0.18"/>
+      <path d="M872 96 l-26 15 l0 -18 l26 -15 z" fill="#bc8cff" fill-opacity="0.26"/>
+      <path d="M876 78 l26 -15 l26 15 l-26 15 z" fill="#58a6ff" fill-opacity="0.3"/>
+      <path d="M876 78 l26 15 l0 -26 l-26 -15 z" fill="#58a6ff" fill-opacity="0.16"/>
+      <path d="M928 78 l-26 15 l0 -26 l26 -15 z" fill="#58a6ff" fill-opacity="0.22"/>
+    </g>
+    <text class="mono" x="28" y="52" font-size="14">
+      <tspan fill="#d29922">[ WAIT ]</tspan>
+      <tspan fill="#e6edf3" dx="10" font-weight="bold" letter-spacing="1.2">3D CONTRIBUTION GRAPH NOT YET GENERATED</tspan>
+    </text>
+    <text class="mono" x="28" y="78" font-size="12" fill="#a9c2d1">Run the “3D Contribution Graph” workflow to replace this placeholder.</text>
+    <text class="mono" x="28" y="104" font-size="12">
+      <tspan fill="#1de9b6">$</tspan>
+      <tspan fill="#e6edf3" dx="8">gh workflow run profile-3d.yml</tspan>
+    </text>
+  </g>
+  <rect x="1" y="1" width="998" height="138" rx="12" fill="none" stroke="url(#tdEdge)" stroke-width="1.5"/>
+</svg>
