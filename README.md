@@ -57,8 +57,6 @@ specify until it is testable.**
 - **Specify** with acceptance criteria so "done" is never a matter of opinion.
 - **Validate** continuously — the feedback loop is part of the design, not an afterthought.
 
-> `// TODO:` _Add your own one-sentence positioning statement here._
-
 <img src="./assets/matrix-divider1.svg" width="100%" alt="" />
 
 ## ANALYSIS CONSOLE
