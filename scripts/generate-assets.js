@@ -11,6 +11,14 @@
  * deterministic (seeded PRNG), so re-running produces byte-identical files
  * and never creates spurious git diffs.
  *
+ * IMPORTANT — why every animation is a generated CSS class:
+ *   GitHub sanitises SVGs before rendering them in a README and drops inline
+ *   `style="..."` attributes. Anything animated through an inline style is
+ *   therefore frozen once the file is on GitHub, even though it animates fine
+ *   when opened locally in a browser. So all timing (duration + delay) is
+ *   baked into per-element classes inside <style>, which does survive.
+ *   Do not move animation timing back into inline styles.
+ *
  *   node scripts/generate-assets.js
  */
 
@@ -31,8 +39,8 @@ const ID = {
 };
 
 /* ------------------------------------------------------------------ *
- * Palette — matches the existing header.svg / system-divider.svg so the
- * whole profile reads as one system.
+ * Palette — carried over from the previous theme so the whole profile
+ * still reads as one system.
  * ------------------------------------------------------------------ */
 
 const C = {
@@ -69,21 +77,51 @@ function mulberry32(seed) {
 const GLYPHS = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ$%#@&*+=<>[]{}|/\\_-?!'.split('');
 
 const r2 = (n) => Math.round(n * 100) / 100;
+const r3 = (n) => Math.round(n * 1000) / 1000;
 const esc = (s) =>
   String(s)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 
+/**
+ * Build a keyframes body that shows an element only between two percentages
+ * of the cycle. Used for flip-book style sequences (scramble frames, slides).
+ *
+ * steps(1, end) timing turns this into a hard cut with no cross-fade.
+ */
+function visWindow(startPct, endPct) {
+  const s = r3(startPct);
+  const e = r3(Math.min(endPct, 100));
+  const eps = 0.001;
+  const stops = [];
+
+  if (s <= 0) {
+    stops.push('0%{opacity:1}');
+  } else {
+    stops.push('0%{opacity:0}', `${r3(s - eps)}%{opacity:0}`, `${s}%{opacity:1}`);
+  }
+
+  if (e >= 100) {
+    stops.push('100%{opacity:1}');
+  } else {
+    stops.push(`${r3(e - eps)}%{opacity:1}`, `${e}%{opacity:0}`, '100%{opacity:0}');
+  }
+
+  return stops.join('');
+}
+
 /* ------------------------------------------------------------------ *
  * Matrix rain generator.
  *
- * Each column is an <g> translated to its x position, wrapping an inner
- * <g class="st"> that animates on translateY only. Nesting keeps the CSS
- * animation from clobbering the positioning transform.
+ * Each column is a <g> carrying only an animation class; the glyph x is set
+ * on the <text> elements themselves. That keeps the CSS transform from
+ * fighting a positioning transform on the same element, and keeps all timing
+ * inside <style> where GitHub will not strip it.
  * ------------------------------------------------------------------ */
 
 function rainLayer({
+  prefix, // unique per-SVG class prefix
   width,
   height,
   spacing = 22,
@@ -99,10 +137,15 @@ function rainLayer({
   const rand = mulberry32(seed);
   const contentH = rows * lineH;
   const cols = [];
+  const rules = [];
+  let n = 0;
 
   for (let x = spacing / 2; x < width; x += spacing) {
     const dur = r2(minDur + rand() * (maxDur - minDur));
+    // Negative delay starts each column mid-flight, so the very first frame
+    // already looks like rain in progress rather than an empty screen.
     const delay = r2(-rand() * dur);
+    const cls = `${prefix}${n}`;
     const glyphs = [];
 
     for (let i = 0; i < rows; i++) {
@@ -112,26 +155,29 @@ function rainLayer({
       const o = isHead ? 1 : r2(peak * Math.pow((i + 1) / rows, 2.1));
       const fill = isHead ? C.white : rand() < 0.14 ? C.rainAlt : C.rain;
       glyphs.push(
-        `<text y="${i * lineH}" fill="${fill}" opacity="${o}">${esc(g)}</text>`
+        `<text x="${r2(x)}" y="${i * lineH}" fill="${fill}" opacity="${o}">${esc(
+          g
+        )}</text>`
       );
     }
 
-    cols.push(
-      `<g transform="translate(${r2(x)},0)">` +
-        `<g class="st" style="animation-duration:${dur}s;animation-delay:${delay}s">` +
-        glyphs.join('') +
-        `</g></g>`
+    rules.push(
+      `.${cls}{animation:${prefix}fall ${dur}s linear infinite ${delay}s}`
     );
+    cols.push(`<g class="${cls}">${glyphs.join('')}</g>`);
+    n++;
   }
 
   const css =
     `.rain text{font-family:${MONO};font-size:${fontSize}px}` +
-    `.rain .st{animation-name:fall;animation-timing-function:linear;` +
-    `animation-iteration-count:infinite}` +
-    `@keyframes fall{from{transform:translateY(${-contentH}px)}` +
-    `to{transform:translateY(${height}px)}}`;
+    `@keyframes ${prefix}fall{` +
+    `from{transform:translateY(${-contentH}px)}` +
+    `to{transform:translateY(${height}px)}}` +
+    rules.join('');
 
-  return { markup: `<g class="rain">${cols.join('')}</g>`, css };
+  const reduce = cols.map((_, i) => `.${prefix}${i}`).join(',') + '{animation:none}';
+
+  return { markup: `<g class="rain">${cols.join('')}</g>`, css, reduce };
 }
 
 /* ------------------------------------------------------------------ *
@@ -142,10 +188,13 @@ function heroBanner() {
   const W = 1000;
   const H = 260;
   const rain = rainLayer({
+    prefix: 'hb',
     width: W,
     height: H,
     spacing: 23,
     rows: 15,
+    minDur: 3.2,
+    maxDur: 8.5,
     peak: 0.5,
     seed: 1011,
   });
@@ -186,15 +235,16 @@ function heroBanner() {
   <style>
     .mono{font-family:${MONO}}
     ${rain.css}
-    .scan{animation:scan 8s linear infinite}
-    @keyframes scan{0%{transform:translateY(-70px)}100%{transform:translateY(${H}px)}}
-    .cur{animation:blink 1.15s steps(1,end) infinite}
-    @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-    .in{animation:in .5s ease-out backwards}
-    @keyframes in{from{opacity:0}to{opacity:1}}
+    .scan{animation:hbScanMove 8s linear infinite}
+    @keyframes hbScanMove{from{transform:translateY(-70px)}to{transform:translateY(${H}px)}}
+    .cur{animation:hbBlink 1.15s steps(1,end) infinite}
+    @keyframes hbBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    .in{animation:hbIn .5s ease-out backwards}
+    @keyframes hbIn{from{opacity:0}to{opacity:1}}
     .d1{animation-delay:.15s}.d2{animation-delay:.4s}.d3{animation-delay:.65s}
     @media (prefers-reduced-motion:reduce){
-      .rain .st,.scan,.cur,.in{animation:none}
+      ${rain.reduce}
+      .scan,.cur{animation:none}
     }
   </style>
 
@@ -258,14 +308,15 @@ function divider() {
   const W = 1000;
   const H = 34;
   const rain = rainLayer({
+    prefix: 'dv',
     width: W,
     height: H,
     spacing: 26,
     fontSize: 11,
     lineH: 14,
     rows: 4,
-    minDur: 4,
-    maxDur: 11,
+    minDur: 2.2,
+    maxDur: 6,
     peak: 0.42,
     seed: 7742,
   });
@@ -295,9 +346,12 @@ function divider() {
   </defs>
   <style>
     ${rain.css}
-    .glide{animation:glide 9s linear infinite}
-    @keyframes glide{0%{transform:translateX(-180px)}100%{transform:translateX(${W}px)}}
-    @media (prefers-reduced-motion:reduce){.rain .st,.glide{animation:none}}
+    .glide{animation:dvGlide 9s linear infinite}
+    @keyframes dvGlide{from{transform:translateX(-180px)}to{transform:translateX(${W}px)}}
+    @media (prefers-reduced-motion:reduce){
+      ${rain.reduce}
+      .glide{animation:none}
+    }
   </style>
   <g clip-path="url(#dvClip)">
     ${rain.markup}
@@ -314,7 +368,11 @@ function divider() {
 }
 
 /* ------------------------------------------------------------------ *
- * 3. Name scramble — glyphs decrypt into the name, then hold.
+ * 3. Name scramble — glyphs decrypt left-to-right into the name, then hold.
+ *
+ * Flip-book: one <text> per frame, each with its own keyframes window, so
+ * exactly one frame is visible at a time. Frame N locks the first N letters
+ * and keeps scrambling the rest.
  * ------------------------------------------------------------------ */
 
 function nameScramble() {
@@ -323,46 +381,75 @@ function nameScramble() {
   const target = ID.name;
   const rand = mulberry32(4242);
 
-  const FRAMES = 12;
-  const TOTAL = 4.8; // seconds
-  const STEP = 0.15; // per scramble frame
-  const lockAt = FRAMES * STEP;
+  const STEP = 0.11; // seconds per scramble frame
+  const HOLD = 2.6; // seconds the resolved name stays up
+  const letters = target.replace(/ /g, '').length;
+  const PER = 3; // scramble frames per letter locked
+  const FRAMES = letters * PER;
+  const scrambleT = FRAMES * STEP;
+  const TOTAL = r2(scrambleT + HOLD);
 
-  // Left-to-right decrypt: frame i locks the first `locked` characters.
   const frames = [];
+  const rules = [];
+
   for (let i = 0; i < FRAMES; i++) {
-    const locked = Math.floor((i / FRAMES) * target.length);
+    const locked = Math.floor(i / PER);
     let s = '';
+    let seenLetters = 0;
     for (let c = 0; c < target.length; c++) {
       if (target[c] === ' ') {
         s += ' ';
-      } else if (c < locked) {
-        s += target[c];
-      } else {
-        s += GLYPHS[Math.floor(rand() * GLYPHS.length)];
+        continue;
       }
+      if (seenLetters < locked) s += target[c];
+      else s += GLYPHS[Math.floor(rand() * GLYPHS.length)];
+      seenLetters++;
     }
-    const fill = i % 4 === 2 ? C.blue : i === FRAMES - 1 ? C.white : C.rain;
+
+    // Locked prefix reads white; the churning tail stays matrix green, with an
+    // occasional blue flicker so it feels like it is still resolving.
+    const tailFill = i % 5 === 3 ? C.blue : C.rain;
+    const cls = `nsf${i}`;
+    const start = (i * STEP) / TOTAL * 100;
+    const end = ((i + 1) * STEP) / TOTAL * 100;
+
+    rules.push(
+      `.${cls}{animation:kf${cls} ${TOTAL}s steps(1,end) infinite}` +
+        `@keyframes kf${cls}{${visWindow(start, end)}}`
+    );
+
     frames.push(
-      `<text class="mono sc" style="animation-delay:${r2(
-        i * STEP
-      )}s" x="${W / 2}" y="78" text-anchor="middle" font-size="46" font-weight="700" fill="${fill}" letter-spacing="4">${esc(
+      `<text class="mono ${cls}" x="${
+        W / 2
+      }" y="78" text-anchor="middle" font-size="46" font-weight="700" fill="${tailFill}" letter-spacing="4">${esc(
         s
       )}</text>`
     );
   }
 
+  // Final resolved frame — name + role, held to the end of the cycle.
+  const lockStart = (scrambleT / TOTAL) * 100;
+  rules.push(
+    `.nslock{animation:kfnslock ${TOTAL}s steps(1,end) infinite}` +
+      `@keyframes kfnslock{${visWindow(lockStart, 100)}}`
+  );
+
   const rain = rainLayer({
+    prefix: 'ns',
     width: W,
     height: H,
     spacing: 28,
     fontSize: 11,
     lineH: 15,
     rows: 10,
+    minDur: 2.6,
+    maxDur: 6.5,
     peak: 0.22,
     head: false,
     seed: 9090,
   });
+
+  const allFrames = frames.map((_, i) => `.nsf${i}`).join(',');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(
     target
@@ -374,27 +461,20 @@ function nameScramble() {
   <style>
     .mono{font-family:${MONO}}
     ${rain.css}
-    .sc{opacity:0;animation:sc ${TOTAL}s steps(1,end) infinite}
-    @keyframes sc{0%{opacity:1}${r2((STEP / TOTAL) * 100)}%{opacity:1}${r2(
-    (STEP / TOTAL) * 100 + 0.01
-  )}%{opacity:0}100%{opacity:0}}
-    .lock{opacity:0;animation:lock ${TOTAL}s steps(1,end) infinite;animation-delay:${r2(
-    lockAt
-  )}s}
-    @keyframes lock{0%{opacity:1}${r2(
-      ((TOTAL - lockAt) / TOTAL) * 100
-    )}%{opacity:1}100%{opacity:0}}
+    ${allFrames}{opacity:0}
+    .nslock{opacity:0}
+    ${rules.join('\n    ')}
     @media (prefers-reduced-motion:reduce){
-      .rain .st,.sc{animation:none}
-      .sc{opacity:0}
-      .lock{animation:none;opacity:1}
+      ${rain.reduce}
+      ${allFrames}{animation:none;opacity:0}
+      .nslock{animation:none;opacity:1}
     }
   </style>
   <rect width="${W}" height="${H}" rx="10" fill="${C.bgMid}"/>
   <g clip-path="url(#nsClip)">
     ${rain.markup}
     ${frames.join('\n    ')}
-    <g class="lock">
+    <g class="nslock">
       <text class="mono" x="${
         W / 2
       }" y="78" text-anchor="middle" font-size="46" font-weight="700" fill="${
@@ -425,9 +505,6 @@ function terminalSlides() {
   const W = 740;
   const H = 270;
   const SLIDE = 7; // seconds each
-  const N = 3;
-  const TOTAL = SLIDE * N;
-
   const slides = [
     {
       cmd: 'elicit --stakeholder all --until unambiguous',
@@ -461,11 +538,22 @@ function terminalSlides() {
     },
   ];
 
+  const N = slides.length;
+  const TOTAL = SLIDE * N;
   const glyphFor = { ok: '[ OK ]', warn: '[WARN]', out: '  ==> ' };
   const fillFor = { ok: C.rain, warn: C.amber, out: C.white };
 
+  const rules = [];
   const panes = slides
     .map((s, i) => {
+      const cls = `tsp${i}`;
+      const start = ((i * SLIDE) / TOTAL) * 100;
+      const end = (((i + 1) * SLIDE) / TOTAL) * 100;
+      rules.push(
+        `.${cls}{animation:kf${cls} ${TOTAL}s steps(1,end) infinite}` +
+          `@keyframes kf${cls}{${visWindow(start, end)}}`
+      );
+
       const rows = s.lines
         .map(
           (l, j) =>
@@ -477,7 +565,7 @@ function terminalSlides() {
         )
         .join('\n      ');
 
-      return `<g class="mono pane" style="animation-delay:${i * SLIDE}s">
+      return `<g class="mono ${cls}">
       <text x="26" y="60" font-size="12">` +
         `<tspan fill="${C.rain}">${esc(ID.handle)}@analysis</tspan>` +
         `<tspan fill="${C.dim}" dx="6">:~$</tspan>` +
@@ -490,6 +578,8 @@ function terminalSlides() {
     })
     .join('\n    ');
 
+  const allPanes = slides.map((_, i) => `.tsp${i}`).join(',');
+
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Business analysis pipeline console: elicit, model, specify">
   <title>analysis console — elicit / model / specify</title>
   <defs>
@@ -501,16 +591,14 @@ function terminalSlides() {
   </defs>
   <style>
     .mono{font-family:${MONO}}
-    .pane{opacity:0;animation:pane ${TOTAL}s steps(1,end) infinite}
-    @keyframes pane{0%{opacity:1}${r2(
-      (SLIDE / TOTAL) * 100
-    )}%{opacity:1}${r2((SLIDE / TOTAL) * 100 + 0.01)}%{opacity:0}100%{opacity:0}}
-    .cur{animation:blink 1.15s steps(1,end) infinite}
-    @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    ${allPanes}{opacity:0}
+    ${rules.join('\n    ')}
+    .cur{animation:tsBlink 1.15s steps(1,end) infinite}
+    @keyframes tsBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
     @media (prefers-reduced-motion:reduce){
-      .pane,.cur{animation:none}
-      .pane{opacity:0}
-      .pane:first-of-type{opacity:1}
+      ${allPanes}{animation:none;opacity:0}
+      .tsp0{opacity:1}
+      .cur{animation:none}
     }
   </style>
   <rect width="${W}" height="${H}" rx="10" fill="url(#tsBg)"/>
@@ -573,6 +661,16 @@ function main() {
   for (const [file, build] of ASSETS) {
     const target = path.join(OUT_DIR, file);
     const svg = build();
+
+    // Inline style attributes are stripped by GitHub's SVG sanitiser, which
+    // would silently freeze any animation driven by one. Fail loudly instead.
+    if (/\sstyle="/.test(svg)) {
+      throw new Error(
+        `${file}: inline style attribute found — move timing into a CSS class ` +
+          `(GitHub strips inline styles and the animation would not run).`
+      );
+    }
+
     fs.writeFileSync(target, svg, 'utf8');
     const kb = (Buffer.byteLength(svg, 'utf8') / 1024).toFixed(1);
     console.log(`  wrote assets/${file.padEnd(22)} ${kb.padStart(6)} KB`);
